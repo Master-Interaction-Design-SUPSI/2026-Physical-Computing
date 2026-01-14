@@ -1,7 +1,12 @@
+#include <Ultrasonic.h>
 #include <rgb_lcd.h>
 #include <Wire.h>
 
+// Libraries
 rgb_lcd lcd;
+Ultrasonic ultrasonic(D7);
+
+// Variables
 int counter = 0;
 
 // RGB backlight channels
@@ -11,6 +16,7 @@ int blue = 0;
 
 // sensors
 int pot = 0;
+int distance = 0;
 
 // timing
 unsigned long old_millis_counter = 0;
@@ -26,20 +32,13 @@ void setup() {
 
 void loop() {
 
-  // potentiometer
-  if(millis() - old_millis_pot > 100) { // update pot every 100ms
-    
-    // potentiomenter smooting
-    pot = 0;
-    for(int i=0; i<20; i++) {
-      pot += analogRead(A1);
-    }
-    pot /= 20;  // pot = pot / 20;
+  // sensors update
+  if(millis() - old_millis_pot > 100) { // update sensors every 100ms
 
-    lcd.setCursor(12, 1);   // col (12), line (1)
-    lcd.print("    ");
-    lcd.setCursor(12, 1);
-    lcd.print(pot);
+    readPot();
+
+    readDistance();
+    
     old_millis_pot = millis();
   }
 
