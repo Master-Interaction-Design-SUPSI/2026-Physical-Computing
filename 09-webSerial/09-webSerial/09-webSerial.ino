@@ -5,4 +5,8 @@ void setup() {
 
 void loop() {
   readSerial();
+
+  Serial.println("Hi");
+  delay(1000);
+
 }
