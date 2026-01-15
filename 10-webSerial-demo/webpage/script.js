@@ -1,10 +1,18 @@
 import { SerialDevice } from './webSerial.js'
 
+// serial terminal
 const connectBtn = document.getElementById("serial-connection");
 const textOutput = document.getElementById("text-output");
 const messageInput = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-message");
 
+// neopixels
+const colorInput = document.getElementById("color-input");
+const minIndex = document.getElementById("min-index");
+const maxIndex = document.getElementById("max-index");
+const sendColorBtn = document.getElementById("send-color");
+
+// Joystick values
 const xBar = document.getElementById("x-value");
 const yBar = document.getElementById("y-value");
 
@@ -48,4 +56,17 @@ sendBtn.addEventListener("click", () => {
         console.log("Sendig: " + msg);
         arduino.sendMessage(msg);      // sending message via library
     }
+});
+
+
+sendColorBtn.addEventListener("click", () => {
+    const iStart = minIndex.value;
+    const iStop = maxIndex.value;
+    const hexColor = colorInput.value;
+
+    const r = parseInt(hexColor.slice(1, 3), 16);
+    const g = parseInt(hexColor.slice(3, 5), 16);
+    const b = parseInt(hexColor.slice(5, 7), 16);
+
+    console.log(iStart + ", " + iStop + ", " + r + ", " + g + ", " + b);
 });
