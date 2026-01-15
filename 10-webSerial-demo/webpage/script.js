@@ -48,5 +48,4 @@ sendBtn.addEventListener("click", () => {
         console.log("Sendig: " + msg);
         arduino.sendMessage(msg);      // sending message via library
     }
-
 });
