@@ -14,7 +14,7 @@ void serialAPI(String msg) {
   else if(msg.equals("LED OFF")) {
     digitalWrite(13, LOW);
   }
-  else if(msg[0] == 'P') {
-    Serial.println("PIXELS");
+  else if(msg[0] == 'P') {  // message for the neopixels
+    updatePixels(msg);
   }
 }
