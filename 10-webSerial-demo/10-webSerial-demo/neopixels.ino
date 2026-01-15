@@ -8,9 +8,10 @@ void updatePixels(String msg) {
 
   for(int i = iStart; i <= iStop; i++) {
     ring.setPixelColor(i, ring.Color(r, g, b));
+    ring.show();
+    delay(100);
   }
 
-  ring.show();
 }
 
 void parseRGB(String data, int &r, int &g, int &b, int &iStart, int &iStop) {
