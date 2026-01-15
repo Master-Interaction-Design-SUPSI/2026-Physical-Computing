@@ -15,6 +15,6 @@ void parseRGB(String data, int &r, int &g, int &b, int &i) {
 
   r = data.substring(firstComma + 1, secondComma).toInt();
   g = data.substring(secondComma + 1, thirdComma).toInt();
-  b = data.substring(thirdComma + 1).toInt();
+  b = data.substring(thirdComma + 1, fourthComma).toInt();
   i = data.substring(fourthComma + 1).toInt();
 }
