@@ -17,13 +17,14 @@ const arduino = new SerialDevice({
 });
 
 function handleMessages(msg) {
-
+    textOutput.textContent += msg;
+    textOutput.scrollTop = textOutput.scrollHeight;
     msg = msg.trim();
 
-    console.log("Arduino says: " + msg + "px");
-    textOutput.textContent += msg;
+    const values = msg.split(',');  // split string by comma
     
-    xBar.style.width = msg / 4 + "px";
+    xBar.style.width = values[0] + "%";
+    yBar.style.width = values[1] + "%";
 }
 
 function arduinoConnected() {   
