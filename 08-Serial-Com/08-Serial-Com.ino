@@ -13,7 +13,7 @@ bool button = 0;  // 1 bit
 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(250000);
   lcd.begin(16, 2);
 }
 
