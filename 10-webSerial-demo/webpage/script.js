@@ -68,5 +68,9 @@ sendColorBtn.addEventListener("click", () => {
     const g = parseInt(hexColor.slice(3, 5), 16);
     const b = parseInt(hexColor.slice(5, 7), 16);
 
-    console.log(iStart + ", " + iStop + ", " + r + ", " + g + ", " + b);
+    const msg = "P," + r + "," + g + "," + b + "," + iStart + "," + iStop;
+
+    arduino.sendMessage(msg);
+    console.log(msg);
+
 });
