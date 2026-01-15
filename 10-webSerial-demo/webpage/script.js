@@ -5,6 +5,9 @@ const textOutput = document.getElementById("text-output");
 const messageInput = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-message");
 
+const xBar = document.getElementById("x-value");
+const yBar = document.getElementById("y-value");
+
 const arduino = new SerialDevice({
     baudRate: 9600,
     connectButton: connectBtn,
@@ -14,8 +17,13 @@ const arduino = new SerialDevice({
 });
 
 function handleMessages(msg) {
-    console.log("Arduino says: " + msg);
+
+    msg = msg.trim();
+
+    console.log("Arduino says: " + msg + "px");
     textOutput.textContent += msg;
+    
+    xBar.style.width = msg / 4 + "px";
 }
 
 function arduinoConnected() {   

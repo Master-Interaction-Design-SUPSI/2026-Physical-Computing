@@ -1,0 +1,18 @@
+#text-output {
+    display: block;
+    margin-top: 1rem;
+    min-width: 10rem;
+    min-height: 10rem;
+}
+
+.bar {
+    height: 2rem;
+}
+
+#x-value {
+    background-color: blue;
+}
+
+#y-value {
+    background-color: chartreuse;
+}
