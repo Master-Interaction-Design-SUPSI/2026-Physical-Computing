@@ -14,4 +14,7 @@ void serialAPI(String msg) {
   else if(msg.equals("LED OFF")) {
     digitalWrite(13, LOW);
   }
+  else if(msg[0] == 'P') {
+    Serial.println("PIXELS");
+  }
 }
