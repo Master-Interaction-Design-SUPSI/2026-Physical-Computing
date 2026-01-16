@@ -33,5 +33,9 @@ void setup() {
 }
 
 void loop() {
-
+  readInterface();
 }
+
+
+
+
