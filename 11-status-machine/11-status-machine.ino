@@ -24,12 +24,16 @@ bool old_buttonStatus = 0;
 
 // variables
 byte currentFunction = 0;   // 0: blink, 1: count, 2: pot
+byte old_currentFunction = 255;
 bool currentBlinkStatus = 0;   // 0: backlight off, 1: backlight on
 unsigned int counter = 0;
 
 // timer
 long old_timer = 0;
 int timerInterval = 1000;   // 1s
+
+// dataset
+String functionData[] = {"blink", "count", "potentiometer"};  // functions names
 
 
 void setup() {
