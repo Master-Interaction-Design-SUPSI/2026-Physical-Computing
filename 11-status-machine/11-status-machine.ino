@@ -33,11 +33,17 @@ long old_timer = 0;
 int timerInterval = 1000;   // 1s
 
 // dataset
-String functionData[3][2] = {
-  {"blink", "1000"},
-  {"count", "1000"},
-  {"potentiometer", "50"}
-};  // functions names
+struct FunctionData {
+  String name;
+  int interval;
+  byte color[3];
+};
+
+FunctionData data[] = {
+  {"blink", 1000, {0, 0, 255}},
+  {"count", 1000, {0, 255, 0}},
+  {"potentiometer", 50, {255, 0, 0}}
+};
 
 
 void setup() {

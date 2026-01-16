@@ -1,11 +1,20 @@
 void runFunctions() {
 
+  // check if the function is different than before
   if(currentFunction != old_currentFunction) {
     lcd.clear();
-    lcd.setRGB(0, 0, 0);
+
+    byte r = data[currentFunction].color[0];  // R channel
+    byte g = data[currentFunction].color[1];  // G channel
+    byte b = data[currentFunction].color[2];  // B channel
+
+    lcd.setRGB(r, g, b);
+    
     // print the title
-    lcd.print(functionData[currentFunction][0]);
-    timerInterval = functionData[currentFunction][1].toInt();
+    lcd.print(data[currentFunction].name);
+    timerInterval = data[currentFunction].interval;
+
+
     old_currentFunction = currentFunction;
   }
 
