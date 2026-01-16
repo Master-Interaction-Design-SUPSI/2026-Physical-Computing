@@ -27,6 +27,7 @@ byte currentFunction = 0;   // 0: blink, 1: count, 2: pot
 byte old_currentFunction = 255;
 bool currentBlinkStatus = 0;   // 0: backlight off, 1: backlight on
 unsigned int counter = 0;
+bool reset = false;   // used to reset functions at start
 
 // timer
 long old_timer = 0;
@@ -37,14 +38,14 @@ struct FunctionData {
   String name;
   int interval;
   byte color[3];
+  bool resetAtStartup;
 };
 
 FunctionData data[] = {
-  {"blink", 1000, {0, 0, 255}},
-  {"count", 1000, {0, 255, 0}},
-  {"potentiometer", 50, {255, 0, 0}}
+  {"blink", 1000, {0, 0, 255}, false},
+  {"count", 1000, {0, 255, 0}, true},
+  {"potentiometer", 50, {255, 0, 0}, false}
 };
-
 
 void setup() {
   pinMode(pinButton, INPUT);

@@ -7,13 +7,14 @@ void runFunctions() {
     byte r = data[currentFunction].color[0];  // R channel
     byte g = data[currentFunction].color[1];  // G channel
     byte b = data[currentFunction].color[2];  // B channel
-
     lcd.setRGB(r, g, b);
-    
+
     // print the title
     lcd.print(data[currentFunction].name);
     timerInterval = data[currentFunction].interval;
 
+    // define if the function as to do the reset at startup or no
+    reset = data[currentFunction].resetAtStartup;   // true or false
 
     old_currentFunction = currentFunction;
   }
@@ -51,6 +52,11 @@ void blinkFunction() {
 }
 
 void countFunction() {
+
+  if(reset) {   // reset at startup
+    counter = 0;
+    reset = false;
+  }
 
   if(checkTimer()) {
     lcd.setCursor(0, 1);    // fist col, sencond line
