@@ -3,7 +3,9 @@ void runFunctions() {
   if(currentFunction != old_currentFunction) {
     lcd.clear();
     lcd.setRGB(0, 0, 0);
-    lcd.print(functionData[currentFunction]);
+    // print the title
+    lcd.print(functionData[currentFunction][0]);
+    timerInterval = functionData[currentFunction][1].toInt();
     old_currentFunction = currentFunction;
   }
 
@@ -51,6 +53,18 @@ void countFunction() {
 
 void potFunction() {
 
+  if(checkTimer()) {
+    // values smoothing
+    potVal = 0;
+    for(int i=0; i<20; i++) {
+      potVal += analogRead(pinPot);
+    }
+    potVal /= 20;
 
+    lcd.setCursor(0, 1);
+    lcd.print("    ");
+    lcd.setCursor(0, 1);
+    lcd.print(potVal);
+  }
 
 }

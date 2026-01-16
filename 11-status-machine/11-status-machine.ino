@@ -33,7 +33,11 @@ long old_timer = 0;
 int timerInterval = 1000;   // 1s
 
 // dataset
-String functionData[] = {"blink", "count", "potentiometer"};  // functions names
+String functionData[3][2] = {
+  {"blink", "1000"},
+  {"count", "1000"},
+  {"potentiometer", "50"}
+};  // functions names
 
 
 void setup() {
