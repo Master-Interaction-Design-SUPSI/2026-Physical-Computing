@@ -18,8 +18,7 @@ void runFunctions() {
 void blinkFunction() {
   lcd.print("blink");
 
-  if(millis() - old_blinkTime > blinkInterval) {
-
+  if(checkTimer()) {   // check the timer
     if(currentBlinkStatus) {
       lcd.setRGB(0, 0, 0);    // background off
     }
@@ -28,15 +27,15 @@ void blinkFunction() {
     }
 
     currentBlinkStatus = !currentBlinkStatus;  // toggle
-    
-    old_blinkTime = millis();
   }
+    
 }
 
 void countFunction() {
-
-
-
+  lcd.print("count");
+  lcd.setCursor(0, 1);    // fist col, sencond line
+  lcd.print(counter);
+  counter++;
 }
 
 void potFunction() {

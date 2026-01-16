@@ -25,10 +25,11 @@ bool old_buttonStatus = 0;
 // variables
 byte currentFunction = 0;   // 0: blink, 1: count, 2: pot
 bool currentBlinkStatus = 0;   // 0: backlight off, 1: backlight on
+unsigned int counter = 0;
 
-// timing
-long old_blinkTime = 0;
-int blinkInterval = 1000;   // 1s
+// timer
+long old_timer = 0;
+int timerInterval = 1000;   // 1s
 
 
 void setup() {
